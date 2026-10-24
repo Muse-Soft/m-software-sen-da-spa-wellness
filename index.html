@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sen Đá Spa &amp; Wellness — Spa trị liệu &amp; chăm sóc da thảo mộc</title>
+<meta name="description" content="Sen Đá Spa &amp; Wellness — không gian spa retreat tối giản: massage, chăm sóc da, thư giãn toàn thân. Đặt lịch trực tuyến (giao diện demo).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mist:#EDF0E9; --ink:#2E2A26; --moss:#55684C; --porcelain:#FFFFFF;
+    --moss-light:#8A9B7E; --stone:#D8D2C4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--mist);color:var(--ink);
+    font-family:"Be Vietnam Pro",sans-serif;font-size:17px;line-height:1.7}
+  a{color:inherit}
+  img{display:block;width:100%;object-fit:cover}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  /* Header */
+  header{position:sticky;top:0;z-index:10;background:var(--mist);
+    border-bottom:1px solid var(--moss-light)}
+  .head{display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1120px;margin:0 auto}
+  .brand{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:28px;
+    color:var(--ink);text-decoration:none}
+  nav{display:flex;gap:28px;align-items:center}
+  nav a{font-size:15px;font-weight:500;color:var(--ink);text-decoration:none}
+  nav a:hover{color:var(--moss)}
+  /* Buttons */
+  .btn{display:inline-block;background:var(--moss);color:#fff;
+    font-family:"Be Vietnam Pro",sans-serif;font-size:16px;font-weight:500;
+    padding:14px 32px;border-radius:999px;border:0;cursor:pointer;text-decoration:none}
+  .btn:hover{opacity:.92}
+  .btn-outline{background:transparent;color:var(--moss);
+    border:1px solid var(--moss)}
+  /* Sections */
+  section{padding:96px 0}
+  .kicker{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--moss);margin:0 0 12px}
+  h1,h2,h3{font-family:"Cormorant Garamond",serif;color:var(--ink);margin:0}
+  h2{font-size:40px;font-weight:500;line-height:1.2}
+  h2::after{content:"";display:block;width:56px;height:3px;background:var(--moss);margin-top:16px}
+  .lead{max-width:640px;margin:16px 0 0}
+  /* Hero */
+  .hero{position:relative;padding:0}
+  .hero img{height:72vh;min-height:480px}
+  .hero .shade{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55))}
+  .hero .inner{position:absolute;left:0;right:0;bottom:0}
+  .hero .inner .wrap{padding-bottom:72px}
+  .hero h1{font-size:56px;font-weight:600;color:#fff;line-height:1.15;max-width:640px}
+  .hero p{color:#fff;max-width:520px;margin:16px 0 28px}
+  /* Intro */
+  .intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .intro img{aspect-ratio:4/3;border-radius:16px;border:1px solid var(--stone)}
+  .intro p{margin:16px 0 0}
+  /* Cards */
+  .group{margin-top:56px}
+  .group h3{font-size:24px;font-weight:500;margin-bottom:24px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{background:var(--porcelain);border:1px solid var(--moss-light);
+    border-radius:16px;overflow:hidden}
+  .card img{aspect-ratio:4/3;border-radius:16px 16px 0 0}
+  .card .body{padding:24px}
+  .card h4{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:500;margin:0}
+  .card p{margin:8px 0 0}
+  .price{margin-top:16px;font-weight:700;color:var(--ink)}
+  .meta{font-size:15px;color:var(--moss)}
+  /* Combo */
+  .combos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:48px}
+  .combo{background:var(--porcelain);border:1px solid var(--moss-light);
+    border-radius:16px;overflow:hidden}
+  .combo img{aspect-ratio:4/3;border-radius:16px 16px 0 0}
+  .combo .body{padding:24px}
+  .combo h3{font-size:24px;font-weight:500}
+  .combo p{margin:8px 0 0}
+  .badge{display:inline-block;background:var(--stone);border-radius:999px;
+    padding:4px 14px;font-size:14px;font-weight:500;margin-top:16px}
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .gallery img{aspect-ratio:3/2;border-radius:16px;border:1px solid var(--stone)}
+  /* Quote */
+  .quote{background:#E6EAE0;border:1px solid var(--moss-light);border-radius:16px;
+    padding:48px;text-align:center;margin-top:48px}
+  .quote blockquote{font-family:"Cormorant Garamond",serif;font-size:30px;
+    font-weight:500;line-height:1.4;margin:0}
+  .quote cite{display:block;margin-top:16px;font-style:normal;font-size:15px}
+  /* Form */
+  .form-card{background:var(--porcelain);border:1px solid var(--moss-light);
+    border-radius:16px;padding:40px;max-width:640px;margin:48px auto 0}
+  .field{margin-bottom:20px}
+  .field label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .field input,.field select{width:100%;background:var(--porcelain);
+    border:1px solid var(--stone);border-radius:12px;padding:12px 16px;
+    font-family:"Be Vietnam Pro",sans-serif;font-size:16px;color:var(--ink)}
+  .note{font-size:14px;color:var(--moss);margin-top:16px}
+  .ok{display:none;background:#E6EAE0;border:1px solid var(--moss-light);
+    border-radius:12px;padding:16px;margin-top:20px}
+  /* Footer */
+  footer{background:var(--ink);color:var(--mist);padding:56px 0}
+  footer .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+  footer h3{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:500;
+    color:var(--mist);margin-bottom:12px}
+  footer p{font-size:15px;margin:6px 0}
+  footer a{color:var(--mist)}
+  @media (max-width:760px){
+    section{padding:56px 0}
+    h2{font-size:30px}
+    .hero h1{font-size:40px}
+    .hero img{height:80vh;aspect-ratio:4/5}
+    nav a:not(.btn){display:none}
+    .intro,.cards,.combos,.gallery,footer .wrap{grid-template-columns:1fr}
+    .form-card{padding:24px}
+    .quote{padding:32px 24px}
+    .quote blockquote{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="head">
+    <a class="brand" href="#">Sen Đá Spa &amp; Wellness</a>
+    <nav>
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#lieu-trinh">Liệu trình</a>
+      <a href="#combo">Gói combo</a>
+      <a href="#khong-gian">Không gian</a>
+      <a class="btn" href="#dat-lich">Đặt lịch</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://picsum.photos/seed/senda-hero/1920/1080" alt="Không gian spa Sen Đá (ảnh mẫu)">
+  <div class="shade"></div>
+  <div class="inner"><div class="wrap">
+    <h1>Nghỉ ngơi thật sâu, giữa nhịp sống chậm lại</h1>
+    <p>Sen Đá Spa &amp; Wellness — không gian retreat tối giản, liệu trình thảo mộc nhẹ nhàng cho cơ thể và tâm trí.</p>
+    <a class="btn" href="#dat-lich">Đặt lịch ngay</a>
+  </div></div>
+</section>
+
+<section id="gioi-thieu">
+  <div class="wrap">
+    <div class="intro">
+      <img src="https://picsum.photos/seed/senda-intro/1200/900" alt="Góc thư giãn tại spa (ảnh mẫu)">
+      <div>
+        <p class="kicker">Triết lý trị liệu</p>
+        <h2>Chữa lành bắt đầu từ sự tĩnh lặng</h2>
+        <p>Chúng tôi tin rằng cơ thể tự phục hồi tốt nhất khi được nghỉ ngơi đúng cách: ánh sáng dịu, mùi thảo mộc nhẹ, và đôi tay trị liệu chậm rãi, có chủ đích.</p>
+        <p>Mỗi liệu trình tại Sen Đá đều bắt đầu bằng vài phút lắng nghe — để hiểu cơ thể bạn hôm nay cần gì, trước khi chạm vào bất kỳ điều gì.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lieu-trinh">
+  <div class="wrap">
+    <p class="kicker">Liệu trình</p>
+    <h2>Ba nhóm trị liệu, một nhịp thở chung</h2>
+    <p class="lead">Mỗi liệu trình gồm ảnh minh họa, thời lượng và giá mẫu. Giá chính thức sẽ được xác nhận khi đặt lịch.</p>
+
+    <div class="group">
+      <h3>Massage</h3>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-massage-1/1200/900" alt="Massage đá nóng (ảnh mẫu)">
+          <div class="body">
+            <h4>Massage đá nóng</h4>
+            <p>Đá bazan ấm kết hợp dầu thảo mộc, làm dịu cơ sâu và giấc ngủ.</p>
+            <p class="meta">60 phút</p>
+            <p class="price">550.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-massage-2/1200/900" alt="Massage thư giãn toàn thân (ảnh mẫu)">
+          <div class="body">
+            <h4>Massage thư giãn toàn thân</h4>
+            <p>Lực vừa phải, nhịp chậm, tập trung vai gáy và lưng — nhóm cơ mỏi nhiều nhất.</p>
+            <p class="meta">90 phút</p>
+            <p class="price">750.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>Chăm sóc da mặt</h3>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-facial-1/1200/900" alt="Chăm sóc da thảo mộc (ảnh mẫu)">
+          <div class="body">
+            <h4>Chăm sóc da thảo mộc</h4>
+            <p>Làm sạch dịu nhẹ, đắp mặt nạ thảo mộc, massage mặt thư giãn.</p>
+            <p class="meta">45 phút</p>
+            <p class="price">420.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-facial-2/1200/900" alt="Làm sạch sâu và mặt nạ (ảnh mẫu)">
+          <div class="body">
+            <h4>Làm sạch sâu + mặt nạ</h4>
+            <p>Làm sạch chuyên sâu, cân bằng da, kết thúc bằng mặt nạ dưỡng ẩm.</p>
+            <p class="meta">60 phút</p>
+            <p class="price">580.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>Thư giãn toàn thân</h3>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-body-1/1200/900" alt="Tắm thảo mộc và xông hơi (ảnh mẫu)">
+          <div class="body">
+            <h4>Tắm thảo mộc + xông hơi</h4>
+            <p>Ngâm mình trong nước thảo mộc ấm, xông hơi nhẹ, kết thúc bằng trà ấm.</p>
+            <p class="meta">75 phút</p>
+            <p class="price">680.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/senda-body-2/1200/900" alt="Trị liệu toàn thân cao cấp (ảnh mẫu)">
+          <div class="body">
+            <h4>Trị liệu toàn thân cao cấp</h4>
+            <p>Kết hợp massage, tắm thảo mộc và chăm sóc da trong một buổi trọn vẹn.</p>
+            <p class="meta">120 phút</p>
+            <p class="price">1.150.000₫ <span style="font-weight:400;font-size:14px">(giá mẫu)</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="combo">
+  <div class="wrap">
+    <p class="kicker">Gói combo</p>
+    <h2>Ba gói trọn vẹn cho một ngày chậm lại</h2>
+    <div class="combos">
+      <article class="combo">
+        <img src="https://picsum.photos/seed/senda-combo-1/1200/900" alt="Combo Ngày thư giãn (ảnh mẫu)">
+        <div class="body">
+          <h3>Combo Ngày thư giãn</h3>
+          <p>Massage 60 phút + chăm sóc da mặt 45 phút + trà thảo mộc.</p>
+          <p class="badge">1.450.000₫ (giá mẫu)</p>
+        </div>
+      </article>
+      <article class="combo">
+        <img src="https://picsum.photos/seed/senda-combo-2/1200/900" alt="Combo Cặp đôi (ảnh mẫu)">
+        <div class="body">
+          <h3>Combo Cặp đôi</h3>
+          <p>Hai liệu trình song song trong phòng đôi, kết thúc bằng trà chiều.</p>
+          <p class="badge">2.300.000₫ (giá mẫu)</p>
+        </div>
+      </article>
+      <article class="combo">
+        <img src="https://picsum.photos/seed/senda-combo-3/1200/900" alt="Combo Chăm sóc định kỳ (ảnh mẫu)">
+        <div class="body">
+          <h3>Combo Chăm sóc định kỳ</h3>
+          <p>Bốn buổi trị liệu trong một tháng, theo dõi tiến trình riêng.</p>
+          <p class="badge">3.900.000₫ (giá mẫu)</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="khong-gian">
+  <div class="wrap">
+    <p class="kicker">Không gian</p>
+    <h2>Một nơi để thở chậm</h2>
+    <div class="gallery">
+      <img src="https://picsum.photos/seed/senda-space-1/1200/800" alt="Không gian spa 1 (ảnh mẫu)">
+      <img src="https://picsum.photos/seed/senda-space-2/1200/800" alt="Không gian spa 2 (ảnh mẫu)">
+      <img src="https://picsum.photos/seed/senda-space-3/1200/800" alt="Không gian spa 3 (ảnh mẫu)">
+      <img src="https://picsum.photos/seed/senda-space-4/1200/800" alt="Không gian spa 4 (ảnh mẫu)">
+      <img src="https://picsum.photos/seed/senda-space-5/1200/800" alt="Không gian spa 5 (ảnh mẫu)">
+      <img src="https://picsum.photos/seed/senda-space-6/1200/800" alt="Không gian spa 6 (ảnh mẫu)">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Cảm nhận khách</p>
+    <h2>Người ta đến rồi quay lại vì điều gì</h2>
+    <div class="quote">
+      <blockquote>“Ra khỏi Sen Đá, tôi thấy người mình nhẹ hẳn — như vừa được đặt xuống sau một ngày dài.”</blockquote>
+      <cite>— Khách trải nghiệm (mẫu)</cite>
+    </div>
+  </div>
+</section>
+
+<section id="dat-lich">
+  <div class="wrap">
+    <p class="kicker">Đặt lịch</p>
+    <h2 style="text-align:center">Đặt một buổi cho riêng bạn</h2>
+    <div class="form-card">
+      <form id="bookForm">
+        <div class="field">
+          <label for="bk-name">Họ tên</label>
+          <input id="bk-name" name="name" type="text" required maxlength="100" placeholder="Nguyễn Thị A">
+        </div>
+        <div class="field">
+          <label for="bk-phone">Số điện thoại</label>
+          <input id="bk-phone" name="phone" type="tel" required pattern="0[0-9]{9}" placeholder="0900000000">
+        </div>
+        <div class="field">
+          <label for="bk-service">Liệu trình</label>
+          <select id="bk-service" name="service" required>
+            <option value="">— Chọn liệu trình —</option>
+            <option>Massage đá nóng</option>
+            <option>Massage thư giãn toàn thân</option>
+            <option>Chăm sóc da thảo mộc</option>
+            <option>Làm sạch sâu + mặt nạ</option>
+            <option>Tắm thảo mộc + xông hơi</option>
+            <option>Trị liệu toàn thân cao cấp</option>
+            <option>Combo Ngày thư giãn</option>
+            <option>Combo Cặp đôi</option>
+            <option>Combo Chăm sóc định kỳ</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bk-when">Ngày giờ mong muốn</label>
+          <input id="bk-when" name="when" type="datetime-local" required>
+        </div>
+        <button class="btn" type="submit">Gửi yêu cầu đặt lịch</button>
+        <p class="note">Form này chỉ là giao diện demo — thông tin chưa được gửi đi đâu và chưa tạo lịch hẹn thật. Spa sẽ liên hệ xác nhận khi có kênh tiếp nhận thật.</p>
+        <div class="ok" id="bookOk">✓ Đã ghi nhận yêu cầu (demo): cảm ơn bạn, spa sẽ liên hệ xác nhận sau khi có kênh tiếp nhận thật.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>Sen Đá Spa &amp; Wellness</h3>
+      <p>Không gian spa retreat tối giản — massage, chăm sóc da, thư giãn toàn thân.</p>
+    </div>
+    <div>
+      <h3>Liên hệ</h3>
+      <p>Địa chỉ: [CẦN BỔ SUNG]</p>
+      <p>Điện thoại: [CẦN BỔ SUNG]</p>
+    </div>
+    <div>
+      <h3>Giờ mở cửa</h3>
+      <p>9:00–21:00 mỗi ngày (giờ mẫu)</p>
+      <p><a href="#dat-lich">Đặt lịch trực tuyến</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("bookForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("bookOk").style.display = "block";
+  });
+</script>
+</body>
+</html>
